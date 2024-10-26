@@ -1,3 +1,5 @@
+import Productlist from "@/components/ProductsList";
+
 export default function Page() {
-    return <h1>Product Page</h1>
+    return <Productlist />;
 }
