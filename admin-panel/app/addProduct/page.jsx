@@ -1,20 +1,41 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function AddProduct() {
     const [name, setName] = useState("");
-    const [image, setImage] = useState("");
-    const [price, setPrice] = useState("");
+    const [image, setImage] = useState("/images/1.jpg"); // Set default state
+    const [price, setPrice] = useState(1); // Set default state
     const [category, setCategory] = useState("");
+
+    const router = useRouter();
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (!name || !image) {
-            alert("Nama and image are required");
+            alert("Name and image are required");
             return;
         }
+        try {
+            const res = await fetch("http://localhost:3000/api/products", {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json",
+                },
+                body: JSON.stringify({ name, image, price, category })
+            });
+            if (res.ok) {
+                router.push("/products");
+            } else {
+                throw new Error("Failed to create a Product");
+            }
+        } catch (error) {
+            console.log(error)
+        }
     };
+
     return (
         <>
             <div className="flex justify-between items-center">
@@ -34,7 +55,6 @@ export default function AddProduct() {
                     className="input input-bordered input-accent w-full max-w-xs"
                     type="text"
                     placeholder="/images/1.jpg"
-                    defaultValue="/images/1.jpg"
                 />
                 <input 
                     onChange={(e) => setPrice(e.target.value)}
@@ -42,7 +62,6 @@ export default function AddProduct() {
                     className="input input-bordered input-accent w-full max-w-xs"
                     type="number"
                     placeholder="1"
-                    defaultValue="1"
                 />
                 <input 
                     onChange={(e) => setCategory(e.target.value)}
