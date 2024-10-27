@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import RemoveBtn from "./RemoveBtn";
 
 const getProducts = async () => {
     try {
@@ -76,7 +77,7 @@ export default async function ProductsList() {
                                     <Link href={`/editProduct/${rs._id}`}>
                                         <button className="btn btn-primary">Edit</button>
                                     </Link>
-                                    Delete
+                                    <RemoveBtn id={rs._id} />
                                 </th>
                             </tr>
                         ))}

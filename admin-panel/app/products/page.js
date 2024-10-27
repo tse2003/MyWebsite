@@ -1,5 +1,6 @@
-import Productlist from "@/components/ProductsList";
+import ProductsList from "@/components/ProductsList";
+
 
 export default function Page() {
-    return <Productlist />;
+    return <ProductsList />;
 }
