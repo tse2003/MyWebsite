@@ -1,14 +1,21 @@
 "use client"
 import Image from "next/image";
-import { useState } from "react";
+
+import { useState } from 'react';
 
 export default function Home() {
-  const [isDialogOpen, setDialogOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState('');
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState('');
+  const movie = [
+    { id: 'item1', src: 'Umnud.jpg', title: 'Umnud', description: 'A stunning landscape.', type: 'Action', duration: '100 мин', age: '+12' },
+    { id: 'item2', src: 'Zone.jpg', title: 'Zone', description: 'Capturing the essence of urban life.', type: 'Action', duration: '100 мин', age: '+12' },
+    { id: 'item3', src: 'Joker.jpg', title: 'Joker', description: 'A dramatic piece with a captivating expression.', type: 'Action', duration: '100 мин', age: '+12' },
+    { id: 'item4', src: 'bagman.jpg', title: 'Bagman', description: 'A touch of mystery.', type: 'Action', duration: '100 мин', age: '+12' },
+  ];
 
-  const toggleDialog = (image) => {
-    setSelectedImage(image);
-    setDialogOpen(!isDialogOpen);
+  const handleImageClick = (image) => {
+    setCurrentImage(image);
+    setDialogOpen(true);
   };
 
   return (
@@ -31,28 +38,47 @@ export default function Home() {
       </dialog>
       </div>
 
-      <h1 className="text-white font-bold text-4xl pt-5">Дэлгэцээр гарч буй кинонууд</h1>
-      <div className="carousel rounded-box mt-5">
-        {["/Umnud.jpg", "/Zone.jpg", "/Joker.jpg", "/bagman.jpg", "/III.jpg", "/trans.jpg", "/zolios.jpg"].map((src) => (
-          <div className="carousel-item" key={src} onClick={() => toggleDialog(src)}>
-            <Image src={src} width={400} height={100} alt="logo"/>
+      <h1 className="text-white font-bold text-4xl pt-5 pb-3">Дэлгэцээр гарч буй кинонууд</h1>
+      <div className="relative">
+      <div className="carousel w-full">
+        {movie.map((movie) => (
+          <div key={movie.id} id={movie.id} className="carousel-item w-full">
+            <img
+              src={movie.src}
+              className="w-full h-80 cursor-pointer"
+              onClick={() => handleImageClick(movie)}
+              alt={movie.title}
+            />
           </div>
         ))}
       </div>
+      <div className="flex w-full justify-center gap-2 py-2">
+        {movie.map((movie) => (
+          <a key={movie.id} href={`#${movie.id}`} className="btn btn-xs">
+            {movie.id.slice(-1)}
+          </a>
+        ))}
+      </div>
 
-      {/* Dialog Component */}
-      {isDialogOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="card glass p-5 rounded shadow-lg">
-            <h2 className="text-xl mb-4">Зураг</h2>
-            <Image src={selectedImage} width={400} height={100} alt="Selected" />
-            <h1 className="text-white">TEXT</h1>
-            <button onClick={() => setDialogOpen(false)} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">
-              Хаах
+      {dialogOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="card glass p-6 rounded-lg shadow-lg w-11/12 md:w-1/3">
+            <h2 className="text-xl font-semibold">{currentImage.title}</h2>
+            <img src={currentImage.src} width={500} height={100} />
+            <p className="mt-2">{currentImage.type}</p>
+            <p className="mt-2">Нас: {currentImage.age}</p>
+            <p className="mt-5">Үргэлжлэх хугацаа: {currentImage.duration}</p>
+            <p className="mt-2">{currentImage.description}</p>
+            <button
+              className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
+              onClick={() => setDialogOpen(false)}
+            >
+              Close
             </button>
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 }
