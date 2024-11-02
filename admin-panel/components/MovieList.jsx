@@ -71,7 +71,7 @@ export default async function MovieList() {
                                         </div>
                                     </div>
                                 </td>
-                                <td>{rs.age}</td>
+                                <td>+{rs.age}</td>
                                 <td>{rs.type}</td>
                                 <td>{rs.duration}</td>
                                 <td className="w-[350px]">{rs.description}</td>
