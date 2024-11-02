@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="m-auto w-[1000px] h-full">
+    <div className="m-auto w-[1000px] h-full pt-10">
       <div className="flex gap-3">
         <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <img className="rounded-t-lg h-60 w-full" src="/images/cinema.jpg" alt="Movie" />
