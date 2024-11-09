@@ -20,12 +20,10 @@ export default function AddTime() {
     const [branch6, setBranch6] = useState("");
     const [time6, setTime6] = useState("");
     
-
     const router = useRouter();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         if (!title || !image) {
             alert("Title and image are required");
             return;
@@ -47,124 +45,82 @@ export default function AddTime() {
             console.log(error);
         }
     };
+
     return (
-        <>
-            <div className="flex justify-between items-center">
-                <h1 className="font-bold py-10 text-2xl">Add new movie</h1>
-            </div>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                <input 
-                    onChange={(e) => setTitle(e.target.value)}
-                    value={title}
-                    className="input input-bordered input-accent w-full max-w-xs"
-                    type="text"
-                    placeholder="Title"
-                />
-                <input 
-                    onChange={(e) => setImage(e.target.value)}
-                    value={image}
-                    className="input input-bordered input-accent w-full max-w-xs"
-                    type="text"
-                    placeholder="/images/1.jpg"
-                />
-                <input 
-                    onChange={(e) => setDate(e.target.value)}
-                    value={date}
-                    className="input input-bordered input-accent w-full max-w-xs"
-                    type="text"
-                    placeholder="Date"
-                />
-                <input 
-                    onChange={(e) => setBranch1(e.target.value)}
-                    value={branch1}
-                    className="input input-bordered input-accent w-full max-w-xs"
-                    type="text"
-                    placeholder="Branch 1"
-                />
-                <input 
-                    onChange={(e) => setTime1(e.target.value)}
-                    value={time1}
-                    className="input input-bordered input-accent w-full max-w-xs"
-                    type="text"
-                    placeholder="Time 1"
-                />
-                <input 
-                    onChange={(e) => setBranch2(e.target.value)}
-                    value={branch2}
-                    className="input input-bordered input-accent w-full max-w-xs"
-                    type="text"
-                    placeholder="Branch 2"
-                />
-                <input 
-                    onChange={(e) => setTime2(e.target.value)}
-                    value={time2}
-                    className="input input-bordered input-accent w-full max-w-xs"
-                    type="text"
-                    placeholder="Time 2"
-                />
-                <input 
-                    onChange={(e) => setBranch3(e.target.value)}
-                    value={branch3}
-                    className="input input-bordered input-accent w-full max-w-xs"
-                    type="text"
-                    placeholder="Branch 3"
-                />
-                <input 
-                    onChange={(e) => setTime3(e.target.value)}
-                    value={time3}
-                    className="input input-bordered input-accent w-full max-w-xs"
-                    type="text"
-                    placeholder="Time 3"
-                />
-                <input 
-                    onChange={(e) => setBranch4(e.target.value)}
-                    value={branch4}
-                    className="input input-bordered input-accent w-full max-w-xs"
-                    type="text"
-                    placeholder="Branch 4"
-                />
-                <input 
-                    onChange={(e) => setTime4(e.target.value)}
-                    value={time4}
-                    className="input input-bordered input-accent w-full max-w-xs"
-                    type="text"
-                    placeholder="Time 4"
-                />
-                <input 
-                    onChange={(e) => setBranch5(e.target.value)}
-                    value={branch5}
-                    className="input input-bordered input-accent w-full max-w-xs"
-                    type="text"
-                    placeholder="Branch 5"
-                />
-                <input 
-                    onChange={(e) => setTime5(e.target.value)}
-                    value={time5}
-                    className="input input-bordered input-accent w-full max-w-xs"
-                    type="text"
-                    placeholder="Time 5"
-                />
-                <input 
-                    onChange={(e) => setBranch6(e.target.value)}
-                    value={branch6}
-                    className="input input-bordered input-accent w-full max-w-xs"
-                    type="text"
-                    placeholder="Branch 6"
-                />
-                <input 
-                    onChange={(e) => setTime6(e.target.value)}
-                    value={time6}
-                    className="input input-bordered input-accent w-full max-w-xs"
-                    type="text"
-                    placeholder="Time 6"
-                />
+        <div className="p-10 max-w-3xl mx-auto">
+            <h1 className="text-3xl font-bold text-center mb-8">Цагийн хуваарь /нэмэх/</h1>
+            <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-lg space-y-4">
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Нэр</span>
+                    </label>
+                    <input 
+                        onChange={(e) => setTitle(e.target.value)}
+                        value={title}
+                        className="input input-bordered input-accent w-full"
+                        type="text"
+                        placeholder="Enter movie title"
+                    />
+                </div>
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Зураг</span>
+                    </label>
+                    <input 
+                        onChange={(e) => setImage(e.target.value)}
+                        value={image}
+                        className="input input-bordered input-accent w-full"
+                        type="text"
+                        placeholder="/images/1.jpg"
+                    />
+                </div>
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Огноо</span>
+                    </label>
+                    <input 
+                        onChange={(e) => setDate(e.target.value)}
+                        value={date}
+                        className="input input-bordered input-accent w-full"
+                        type="date"
+                    />
+                </div>
+                
+                {[...Array(6)].map((_, i) => (
+                    <div key={i} className="grid grid-cols-2 gap-4">
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Салбар - {i + 1}</span>
+                            </label>
+                            <input 
+                                onChange={(e) => eval(`setBranch${i+1}`)(e.target.value)}
+                                value={eval(`branch${i+1}`)}
+                                className="input input-bordered input-accent w-full"
+                                type="text"
+                                placeholder={`Бичих`}
+                            />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Цаг</span>
+                            </label>
+                            <input 
+                                onChange={(e) => eval(`setTime${i+1}`)(e.target.value)}
+                                value={eval(`time${i+1}`)}
+                                className="input input-bordered input-accent w-full"
+                                type="text"
+                                placeholder={`Бичих`}
+                            />
+                        </div>
+                    </div>
+                ))}
                 <button
                     type="submit"
-                    className="btn btn-primary w-full max-w-xs"
+                    className="btn btn-primary w-full mt-6"
                 >
                     Add Movie
                 </button>
             </form>
-        </>
+        </div>
     );
 }
