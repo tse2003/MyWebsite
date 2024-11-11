@@ -42,6 +42,7 @@ export default function ComingList() {
 
     return (
         <>
+            <h1 className="text-white text-center font-bold text-4xl pt-5">Тун удахгүй дэлгэцээр гарах кино</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
                 {comings.map((rs) => (
                     <div key={rs._id} className="card glass text-white">

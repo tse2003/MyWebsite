@@ -41,9 +41,9 @@ export default function Home() {
     <div className="m-auto w-[1000px] h-full">
       <h1 className="text-white text-center font-bold text-4xl pb-5">Хамгийн их үзэлттэй кино</h1>
 
-      <div className="m-auto w-[1000px] h-[400px] bg-gray-200 relative">
+      <div className="m-auto w-[1000px] h-[550px] bg-gray-200 relative">
   {movies
-    .filter((movie) => movie._id === "67245112cf2567aa7494f42a") // Only show movie with the specified ID
+    .filter((movie) => movie._id === "6725a3b3a0da6d4a20217f82") // Only show movie with the specified ID
     .map((movie) => (
       <Image
         key={movie.id}
