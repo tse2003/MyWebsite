@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
                 <a href="/" className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Эхлэл</a>
                 <a href="/comingsoon" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Тун удахгүй</a>
                 <a href="/hutulbur" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Цагийн хуваарь</a>
-                <a href="#" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Үйлчилгээ</a>
+                <a href="/uilchilgee" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Үйлчилгээ</a>
                 <a href="#" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Бонус карт</a>
             </div>
             <div className="mt-5">
