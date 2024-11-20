@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
                 <a href="/comingsoon" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Тун удахгүй</a>
                 <a href="/hutulbur" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Цагийн хуваарь</a>
                 <a href="/uilchilgee" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Үйлчилгээ</a>
-                <a href="#" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Бонус карт</a>
+                <a href="/bonus" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Бонус карт</a>
             </div>
             <div className="mt-5">
                 <a type="button" href="/login" className="text-white bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 shadow-lg shadow-gray-500/50 dark:shadow-lg dark:shadow-gray-800/80 font-bold rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Нэвтрэх</a>
