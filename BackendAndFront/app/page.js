@@ -1,4 +1,5 @@
 "use client";
+import LoginForm from "@/components/LoginForm";
 import Image from "next/image";
 import { useState, useEffect } from 'react';
 
@@ -38,39 +39,7 @@ export default function Home() {
   return (
     <div className="m-auto w-[1000px] h-full">
 
-      <div className="flex justify-center pt-10">
-        <div className="card glass p-6 rounded-lg shadow-lg md:w-1/3 text-white">
-          <h1 className='text-white font-bold text-5xl'>Нэвтрэх</h1>
-          <label htmlFor="Email" className="block mt-5 mb-2 text-sm font-medium text-white">И-мэйл</label>
-          <input
-            type="text"
-            id="Email"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-            placeholder="И-мэйл"
-            required
-          />
-          <label htmlFor="Password" className="block mt-5 mb-2 text-sm font-medium text-white">Нууц үг</label>
-          <input
-            type="text"
-            id="Password"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-            placeholder="Нууц үг"
-            required
-          />
-          <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full w-full mt-5">
-            Нэвтрэх
-          </button>
-          <div className='flex text-gray-400 gap-4 pt-3'>
-            <a href='/register' className='m-auto'>Бүртгүүлэх</a>
-          </div>
-        </div>
-        <div className="card glass p-6 rounded-lg shadow-lg md:w-1/3 text-white">
-          <div className="m-auto text-center">
-            <h1 className='text-white font-bold text-2xl'>Тасалбар захиалах</h1>
-            <p>Эрхэм үйлчлүүлэгч та цахимаар киноны тасалбар захиалах бол өөрийн эрхээр нэвтрэн орно уу!</p>
-          </div> 
-        </div>
-      </div>
+      <LoginForm />
 
       <h1 className="text-white text-center font-bold text-4xl pb-5">Хамгийн их үзэлттэй кино</h1>
       <div className="m-auto w-[1000px] h-[550px] bg-gray-200 relative">
