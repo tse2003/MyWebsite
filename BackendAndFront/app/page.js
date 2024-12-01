@@ -7,7 +7,6 @@ export default function Home() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [currentMovie, setCurrentMovie] = useState(null);
 
-  // Fetch movies from the API
   useEffect(() => {
     const fetchMovies = async () => {
       try {
@@ -17,7 +16,6 @@ export default function Home() {
         }
         const data = await res.json();
         
-        // Add a unique `id` to each movie if it doesn't have one
         const moviesWithId = (data.movies || []).map((movie, index) => ({
           ...movie,
           id: movie.id || `movie-${Date.now()}-${index}`
@@ -39,22 +37,56 @@ export default function Home() {
 
   return (
     <div className="m-auto w-[1000px] h-full">
-      <h1 className="text-white text-center font-bold text-4xl pb-5">Хамгийн их үзэлттэй кино</h1>
 
+      <div className="flex justify-center pt-10">
+        <div className="card glass p-6 rounded-lg shadow-lg md:w-1/3 text-white">
+          <h1 className='text-white font-bold text-5xl'>Нэвтрэх</h1>
+          <label htmlFor="Email" className="block mt-5 mb-2 text-sm font-medium text-white">И-мэйл</label>
+          <input
+            type="text"
+            id="Email"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder="И-мэйл"
+            required
+          />
+          <label htmlFor="Password" className="block mt-5 mb-2 text-sm font-medium text-white">Нууц үг</label>
+          <input
+            type="text"
+            id="Password"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder="Нууц үг"
+            required
+          />
+          <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full w-full mt-5">
+            Нэвтрэх
+          </button>
+          <div className='flex text-gray-400 gap-4 pt-3'>
+            <a href='/register' className='m-auto'>Бүртгүүлэх</a>
+          </div>
+        </div>
+        <div className="card glass p-6 rounded-lg shadow-lg md:w-1/3 text-white">
+          <div className="m-auto text-center">
+            <h1 className='text-white font-bold text-2xl'>Тасалбар захиалах</h1>
+            <p>Эрхэм үйлчлүүлэгч та цахимаар киноны тасалбар захиалах бол өөрийн эрхээр нэвтрэн орно уу!</p>
+          </div> 
+        </div>
+      </div>
+
+      <h1 className="text-white text-center font-bold text-4xl pb-5">Хамгийн их үзэлттэй кино</h1>
       <div className="m-auto w-[1000px] h-[550px] bg-gray-200 relative">
-  {movies
-    .filter((movie) => movie._id === "6725a3b3a0da6d4a20217f82") // Only show movie with the specified ID
-    .map((movie) => (
-      <Image
-        key={movie.id}
-        src={movie.image}
-        layout="fill"
-        objectFit="cover"
-        alt="Featured movie"
-        onClick={() => handleImageClick(movie)}
-      />
-    ))}
-</div>
+        {movies
+          .filter((movie) => movie._id === "6725a3b3a0da6d4a20217f82")
+          .map((movie) => (
+            <Image
+              key={movie.id}
+              src={movie.image}
+              layout="fill"
+              objectFit="cover"
+              alt="Featured movie"
+              onClick={() => handleImageClick(movie)}
+            />
+          ))}
+      </div>
 
       <h1 className="text-white font-bold text-4xl pt-5 pb-3">Дэлгэцээр гарч буй кинонууд</h1>
       <div className="relative">
@@ -71,13 +103,12 @@ export default function Home() {
           ))}
         </div>
         <div className="flex w-full justify-center gap-2 py-2">
-  {movies.map((movie, index) => (
-    <a key={movie.id} href={`#${movie.id}`} className="btn btn-xs">
-      {index + 1} {/* Starts numbering from 1 */}
-    </a>
-  ))}
-</div>
-
+          {movies.map((movie, index) => (
+            <a key={movie.id} href={`#${movie.id}`} className="btn btn-xs">
+              {index + 1} {/* Starts numbering from 1 */}
+            </a>
+          ))}
+        </div>
 
         {dialogOpen && currentMovie && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
@@ -85,8 +116,8 @@ export default function Home() {
               <h2 className="text-2xl font-semibold pb-3">{currentMovie.title}</h2>
               <img src={currentMovie.image} alt={currentMovie.title} className="w-full h-60 object-cover rounded-lg" />
               <p className="mt-2 flex gap-1"><span className="font-bold">Төрөл:</span> {currentMovie.type}</p>
-<p className="mt-2 flex gap-1"><span className="font-bold">Нас:</span> {currentMovie.age}</p>
-<p className="mt-2 flex gap-1"><span className="font-bold">Үргэлжлэх хугацаа:</span> {currentMovie.duration}</p>
+              <p className="mt-2 flex gap-1"><span className="font-bold">Нас:</span> {currentMovie.age}</p>
+              <p className="mt-2 flex gap-1"><span className="font-bold">Үргэлжлэх хугацаа:</span> {currentMovie.duration}</p>
               <p className="mt-2 font-bold">Тайлбар:</p>
               <p>{currentMovie.description}</p>
               <button
@@ -99,6 +130,7 @@ export default function Home() {
           </div>
         )}
       </div>
+
     </div>
   );
 }
