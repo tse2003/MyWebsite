@@ -107,7 +107,7 @@ export default function RegisterForm() {
           )}
           
           <div className="flex text-gray-400 gap-4 pt-3">
-            <a href="/" className="m-auto">Нэвтрэх</a>
+            <a href="/login" className="m-auto">Нэвтрэх</a>
           </div>
         </form>
       </div>

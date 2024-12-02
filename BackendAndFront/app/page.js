@@ -1,5 +1,4 @@
 "use client";
-import LoginForm from "@/components/LoginForm";
 import Image from "next/image";
 import { useState, useEffect } from 'react';
 
@@ -38,8 +37,6 @@ export default function Home() {
 
   return (
     <div className="m-auto w-[1000px] h-full">
-
-      <LoginForm />
 
       <h1 className="text-white text-center font-bold text-4xl pb-5">Хамгийн их үзэлттэй кино</h1>
       <div className="m-auto w-[1000px] h-[550px] bg-gray-200 relative">
