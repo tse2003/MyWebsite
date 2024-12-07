@@ -27,6 +27,8 @@ export default function UserInfo() {
             movie: e.target.Movie.value,
             day: e.target.Day.value,
             time: e.target.Time.value,
+            phone: e.target.Phone.value,
+            address: e.target.Address.value,
             seats: selectedSeats,
         };
 
@@ -127,6 +129,28 @@ export default function UserInfo() {
                         <option value="time2">Цаг 2</option>
                         <option value="time3">Цаг 3</option>
                     </select>
+
+                    <label htmlFor="Phone" className="block mt-5 mb-2 text-sm font-medium text-white">
+                        Утасны дугаар:
+                    </label>
+                    <input
+                        type="tel"
+                        id="Phone"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        placeholder="Та утасны дугаараа оруулна уу"
+                        required
+                    />
+
+                    <label htmlFor="Phone" className="block mt-5 mb-2 text-sm font-medium text-white">
+                        Хүргүүлэх хаяг:
+                    </label>
+                    <input
+                        type="text"
+                        id="Address"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        placeholder="Та хаягаа оруулна уу"
+                        required
+                    />
 
                     <label className="block mt-5 mb-2 text-lg text-center font-medium text-white">
                         Та суудлаа сонгоно уу!

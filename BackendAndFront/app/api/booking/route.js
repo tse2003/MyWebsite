@@ -10,7 +10,7 @@ export async function POST(req) {
         const data = await req.json();
 
         // Validate the data (optional but recommended)
-        if (!data.branch || !data.movie || !data.day || !data.time || !data.seats) {
+        if (!data.branch || !data.movie || !data.day || !data.time || !data.phone || !data.address || !data.seats) {
             return new Response(
                 JSON.stringify({ error: "All fields are required." }),
                 { status: 400 }
