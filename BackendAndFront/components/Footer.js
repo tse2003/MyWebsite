@@ -1,28 +1,29 @@
+import Link from 'next/link';
+
 export default function Footer() {
-    return (
-        <div className="m-auto w-[1000px] h-full flex justify-between pt-10 pb-10">
-            <div className="pl-10">
-                <h1 className="text-white font-bold text-2xl pb-5">ҮНДСЭН</h1>
-                <h1 className="text-white">Эхлэл</h1>
-                <h1 className="text-white">Тун удахгүй</h1>
-                <h1 className="text-white">Хөтөлбөр</h1>
-                <h1 className="text-white">Үйлчилгээ</h1>
-                <h1 className="text-white">Бонус карт</h1>
-            </div>
-            <div>
-                <h1 className="text-white font-bold text-2xl pb-5">ХОЛБООС</h1>
-                <h1 className="text-white">Facenook</h1>
-                <h1 className="text-white">Instagram</h1>
-                <h1 className="text-white">Youtube</h1>
-            </div>
-            <div className="pr-10">
-                <h1 className="text-white font-bold text-2xl pb-5">ТУСЛАХ ЦЭС</h1>
-                <h1 className="text-white">Салбар</h1>
-                <h1 className="text-white">Бонус карт</h1>
-                <h1 className="text-white">Нэвтрэх</h1>
-                <h1 className="text-white">Урамшуулал</h1>
-                <h1 className="text-white">Үйлчилгээний нөхцөл</h1>
-            </div>
-        </div>
-    );
+  return (
+    <footer className="footer text-neutral-content p-10 m-auto w-[1000px] pl-48">
+    <nav>
+      <h6 className="footer-title">ҮНДСЭН</h6>
+      <a href='/' className="link link-hover">Эхлэл</a>
+      <a href='/comingsoon' className="link link-hover">Тун удахгүй</a>
+      <a href='/hutulbur' className="link link-hover">Хөтөлбөр</a>
+      <a href='/uilchilgee' className="link link-hover">Үйлчилгээ</a>
+      <a href='/bonus' className="link link-hover">Бонус карт</a>
+    </nav>
+    <nav>
+      <h6 className="footer-title">ХОЛБООС</h6>
+      <a href='https://www.facebook.com/urgoocinema' target='_blank' className="link link-hover">Facebook</a>
+      <a href='https://www.instagram.com/urgoocinemas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==' target='_blank' className="link link-hover">Instagram</a>
+      <a href='https://www.youtube.com/c/UrgooCinemaUlaanbaatar/featured' target='_blank' className="link link-hover">Youtube</a>
+    </nav>
+    <nav>
+      <h6 className="footer-title">ТУСЛАХ ЦЭС</h6>
+      <a className="link link-hover">Салбар</a>
+      <a href='/bonus' className="link link-hover">Бонус карт</a>
+      <a className="link link-hover">Урамшуулал</a>
+      <a className="link link-hover">Үйлчилгээний нөхцөл</a>
+    </nav>
+  </footer>
+  );
 }

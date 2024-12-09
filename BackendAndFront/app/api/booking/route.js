@@ -22,7 +22,7 @@ export async function POST(req) {
 
         // Respond with success
         return new Response(
-            JSON.stringify({ message: "Booking successful!", booking: newBooking }),
+            JSON.stringify({ message: "Таны захиалга амжилттай баталгаажилаа. Бид тантай удахгүй холбогдож тасалбарыг нь хүргэх болно.", booking: newBooking }),
             { status: 201 }
         );
     } catch (error) {

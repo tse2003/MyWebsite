@@ -56,8 +56,8 @@ export default function UserInfo() {
     };
 
     return (
-        <div>
-            <div className="p-5 card glass mb-10">
+        <div className="flex">
+            <div className="pr-5">
                 <h1 className="text-center">Сайн байна уу?</h1>
                 <div>
                     Email: <span className="font-bold">{session?.user?.email}</span>
@@ -71,21 +71,26 @@ export default function UserInfo() {
             </div>
 
             <div className="card glass p-6 text-white">
-                <h1 className="text-center">Та киногоо захиална уу</h1>
+                <h1 className="text-center text-2xl font-bold">ТА КИНОГОО ЗАХИАЛНА УУ</h1>
 
                 <form onSubmit={handleSubmit}>
+                    <div className="flex">
+                    <div>
                     <label htmlFor="Branch" className="block mt-5 mb-2 text-sm font-medium text-white">
                         Салбар:
                     </label>
                     <select
                         id="Branch"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5"
                         required
                     >
                         <option value="">Салбар сонгох</option>
-                        <option value="branch1">Салбар 1</option>
-                        <option value="branch2">Салбар 2</option>
-                        <option value="branch3">Салбар 3</option>
+                        <option value="Өргөө 1&5 хороолол">Өргөө 1&5 хороолол</option>
+                        <option value="Өргөө 2 IT парк">Өргөө 2 IT парк</option>
+                        <option value="Өргөө 3 IMAX Шангри-Ла Төв">Өргөө 3 IMAX Шангри-Ла Төв</option>
+                        <option value="Өргөө 4 Эрдэнэт хот">Өргөө 4 Эрдэнэт хот</option>
+                        <option value="Өргөө 6 Дархан хот">Өргөө 6 Дархан хот</option>
+                        <option value="Өргөө 7 Парк-Од Молл">Өргөө 7 Парк-Од Молл</option>
                     </select>
 
                     <label htmlFor="Movie" className="block mt-5 mb-2 text-sm font-medium text-white">
@@ -93,13 +98,14 @@ export default function UserInfo() {
                     </label>
                     <select
                         id="Movie"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5"
                         required
                     >
                         <option value="">Кино сонгох</option>
-                        <option value="movie1">Кино 1</option>
-                        <option value="movie2">Кино 2</option>
-                        <option value="movie3">Кино 3</option>
+                        <option value="Z ZONE">Z ZONE</option>
+                        <option value="Өмнөдийг зорих замд">Өмнөдийг зорих замд</option>
+                        <option value="Дада">Дада</option>
+                        <option value="Smile 2">Smile 2</option>
                     </select>
 
                     <label htmlFor="Day" className="block mt-5 mb-2 text-sm font-medium text-white">
@@ -107,13 +113,14 @@ export default function UserInfo() {
                     </label>
                     <select
                         id="Day"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5"
                         required
                     >
                         <option value="">Өдөр сонгох</option>
-                        <option value="day1">Өдөр 1</option>
-                        <option value="day2">Өдөр 2</option>
-                        <option value="day3">Өдөр 3</option>
+                        <option value="2024-11-11">2024-11-11</option>
+                        <option value="2024-11-12">2024-11-12</option>
+                        <option value="2024-11-13">2024-11-13</option>
+                        <option value="2024-11-14">2024-11-14</option>
                     </select>
 
                     <label htmlFor="Time" className="block mt-5 mb-2 text-sm font-medium text-white">
@@ -121,13 +128,14 @@ export default function UserInfo() {
                     </label>
                     <select
                         id="Time"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5"
                         required
                     >
                         <option value="">Цаг сонгох</option>
-                        <option value="time1">Цаг 1</option>
-                        <option value="time2">Цаг 2</option>
-                        <option value="time3">Цаг 3</option>
+                        <option value="14:40">14:40</option>
+                        <option value="15:20">15:20</option>
+                        <option value="16:00">16:00</option>
+                        <option value="18:30">18:30</option>
                     </select>
 
                     <label htmlFor="Phone" className="block mt-5 mb-2 text-sm font-medium text-white">
@@ -136,7 +144,7 @@ export default function UserInfo() {
                     <input
                         type="tel"
                         id="Phone"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5"
                         placeholder="Та утасны дугаараа оруулна уу"
                         required
                     />
@@ -147,11 +155,13 @@ export default function UserInfo() {
                     <input
                         type="text"
                         id="Address"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5"
                         placeholder="Та хаягаа оруулна уу"
                         required
                     />
+                    </div>
 
+                    <div className="pl-10">
                     <label className="block mt-5 mb-2 text-lg text-center font-medium text-white">
                         Та суудлаа сонгоно уу!
                     </label>
@@ -180,6 +190,8 @@ export default function UserInfo() {
                     >
                         {loading ? "Захиалж байна..." : "Захиалах"}
                     </button>
+                    </div>
+                    </div>
                 </form>
             </div>
         </div>

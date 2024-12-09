@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`p-5 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]`}>
         <Header />
-        <div className="pb-56">
+        <div>
           <AuthProvider>{children}</AuthProvider>
         </div>
         <Footer />
