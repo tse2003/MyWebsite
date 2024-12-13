@@ -23,7 +23,6 @@ export default function UserInfo() {
         setLoading(true);
 
         const formData = {
-            branch: e.target.Branch.value,
             movie: e.target.Movie.value,
             day: e.target.Day.value,
             time: e.target.Time.value,
@@ -76,23 +75,7 @@ export default function UserInfo() {
                 <form onSubmit={handleSubmit}>
                     <div className="flex">
                     <div>
-                    <label htmlFor="Branch" className="block mt-5 mb-2 text-sm font-medium text-white">
-                        Салбар:
-                    </label>
-                    <select
-                        id="Branch"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5"
-                        required
-                    >
-                        <option value="">Салбар сонгох</option>
-                        <option value="Өргөө 1&5 хороолол">Өргөө 1&5 хороолол</option>
-                        <option value="Өргөө 2 IT парк">Өргөө 2 IT парк</option>
-                        <option value="Өргөө 3 IMAX Шангри-Ла Төв">Өргөө 3 IMAX Шангри-Ла Төв</option>
-                        <option value="Өргөө 4 Эрдэнэт хот">Өргөө 4 Эрдэнэт хот</option>
-                        <option value="Өргөө 6 Дархан хот">Өргөө 6 Дархан хот</option>
-                        <option value="Өргөө 7 Парк-Од Молл">Өргөө 7 Парк-Од Молл</option>
-                    </select>
-
+                    
                     <label htmlFor="Movie" className="block mt-5 mb-2 text-sm font-medium text-white">
                         Кино:
                     </label>
