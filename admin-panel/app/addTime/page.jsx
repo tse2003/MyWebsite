@@ -19,7 +19,7 @@ export default function AddTime() {
     const [time5, setTime5] = useState("");
     const [branch6, setBranch6] = useState("");
     const [time6, setTime6] = useState("");
-    
+
     const router = useRouter();
 
     const handleSubmit = async (e) => {
@@ -34,7 +34,23 @@ export default function AddTime() {
                 headers: {
                     "Content-type": "application/json",
                 },
-                body: JSON.stringify({ title, image, date, branch1, time1, branch2, time2, branch3, time3, branch4, time4, branch5, time5, branch6, time6 })
+                body: JSON.stringify({
+                    title,
+                    image,
+                    date,
+                    branch1,
+                    time1,
+                    branch2,
+                    time2,
+                    branch3,
+                    time3,
+                    branch4,
+                    time4,
+                    branch5,
+                    time5,
+                    branch6,
+                    time6,
+                }),
             });
             if (res.ok) {
                 router.push("/times");
@@ -54,19 +70,26 @@ export default function AddTime() {
                     <label className="label">
                         <span className="label-text">Нэр</span>
                     </label>
-                    <input 
+                    <select
                         onChange={(e) => setTitle(e.target.value)}
                         value={title}
-                        className="input input-bordered input-accent w-full"
-                        type="text"
-                        placeholder="Enter movie title"
-                    />
+                        className="select select-bordered select-accent w-full"
+                    >
+                        <option value="" disabled>
+                            Select movie title
+                        </option>
+                        <option value="Movie 1">Movie 1</option>
+                        <option value="Movie 2">Movie 2</option>
+                        <option value="Movie 3">Movie 3</option>
+                        <option value="Movie 4">Movie 4</option>
+                        <option value="Movie 5">Movie 5</option>
+                    </select>
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Зураг</span>
                     </label>
-                    <input 
+                    <input
                         onChange={(e) => setImage(e.target.value)}
                         value={image}
                         className="input input-bordered input-accent w-full"
@@ -78,46 +101,42 @@ export default function AddTime() {
                     <label className="label">
                         <span className="label-text">Огноо</span>
                     </label>
-                    <input 
+                    <input
                         onChange={(e) => setDate(e.target.value)}
                         value={date}
                         className="input input-bordered input-accent w-full"
                         type="date"
                     />
                 </div>
-                
                 {[...Array(6)].map((_, i) => (
                     <div key={i} className="grid grid-cols-2 gap-4">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Салбар - {i + 1}</span>
                             </label>
-                            <input 
-                                onChange={(e) => eval(`setBranch${i+1}`)(e.target.value)}
-                                value={eval(`branch${i+1}`)}
+                            <input
+                                onChange={(e) => eval(`setBranch${i + 1}`)(e.target.value)}
+                                value={eval(`branch${i + 1}`)}
                                 className="input input-bordered input-accent w-full"
                                 type="text"
-                                placeholder={`Бичих`}
+                                placeholder="Бичих"
                             />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Цаг</span>
                             </label>
-                            <input 
-                                onChange={(e) => eval(`setTime${i+1}`)(e.target.value)}
-                                value={eval(`time${i+1}`)}
+                            <input
+                                onChange={(e) => eval(`setTime${i + 1}`)(e.target.value)}
+                                value={eval(`time${i + 1}`)}
                                 className="input input-bordered input-accent w-full"
                                 type="text"
-                                placeholder={`Бичих`}
+                                placeholder="Бичих"
                             />
                         </div>
                     </div>
                 ))}
-                <button
-                    type="submit"
-                    className="btn btn-primary w-full mt-6"
-                >
+                <button type="submit" className="btn btn-primary w-full mt-6">
                     Add Movie
                 </button>
             </form>
