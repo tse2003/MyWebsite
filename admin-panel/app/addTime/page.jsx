@@ -1,9 +1,10 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function AddTime() {
+    const [movies, setMovies] = useState([]); // State for storing movies
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("/images/1.jpg");
     const [date, setDate] = useState("");
@@ -21,6 +22,29 @@ export default function AddTime() {
     const [time6, setTime6] = useState("");
 
     const router = useRouter();
+
+    // Fetch movies from API
+    useEffect(() => {
+        const fetchMovies = async () => {
+            try {
+                const res = await fetch("http://localhost:3000/api/movies");
+                const data = await res.json();
+
+                // Check if 'movies' exists and is an array
+                if (Array.isArray(data.movies)) {
+                    setMovies(data.movies);
+                } else {
+                    console.error("Unexpected API response:", data);
+                    setMovies([]); // Set an empty array if response is invalid
+                }
+            } catch (error) {
+                console.error("Error fetching movies:", error);
+                setMovies([]); // Set an empty array on fetch failure
+            }
+        };
+
+        fetchMovies();
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -78,11 +102,11 @@ export default function AddTime() {
                         <option value="" disabled>
                             Select movie title
                         </option>
-                        <option value="Movie 1">Movie 1</option>
-                        <option value="Movie 2">Movie 2</option>
-                        <option value="Movie 3">Movie 3</option>
-                        <option value="Movie 4">Movie 4</option>
-                        <option value="Movie 5">Movie 5</option>
+                        {movies.map((movie) => (
+                            <option key={movie._id} value={movie.title}>
+                                {movie.title}
+                            </option>
+                        ))}
                     </select>
                 </div>
                 <div className="form-control">
