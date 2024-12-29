@@ -8,17 +8,17 @@ export default function AddTime() {
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("/images/1.jpg");
     const [date, setDate] = useState("");
-    const [branch1, setBranch1] = useState("");
+    const [branch1, setBranch1] = useState("Өргөө 1&5 хороолол");
     const [time1, setTime1] = useState("");
-    const [branch2, setBranch2] = useState("");
+    const [branch2, setBranch2] = useState("Өргөө 2 IT парк");
     const [time2, setTime2] = useState("");
-    const [branch3, setBranch3] = useState("");
+    const [branch3, setBranch3] = useState("Өргөө 3 IMAX Шангри-Ла Төв");
     const [time3, setTime3] = useState("");
-    const [branch4, setBranch4] = useState("");
+    const [branch4, setBranch4] = useState("Өргөө 4 Эрдэнэт хот");
     const [time4, setTime4] = useState("");
-    const [branch5, setBranch5] = useState("");
+    const [branch5, setBranch5] = useState("Өргөө 6 Дархан хот");
     const [time5, setTime5] = useState("");
-    const [branch6, setBranch6] = useState("");
+    const [branch6, setBranch6] = useState("Өргөө 7 Парк-Од Молл");
     const [time6, setTime6] = useState("");
 
     const router = useRouter();
