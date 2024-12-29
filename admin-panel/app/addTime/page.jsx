@@ -100,7 +100,7 @@ export default function AddTime() {
                         className="select select-bordered select-accent w-full"
                     >
                         <option value="" disabled>
-                            Select movie title
+                            Сонгох
                         </option>
                         {movies.map((movie) => (
                             <option key={movie._id} value={movie.title}>
