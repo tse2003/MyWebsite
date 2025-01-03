@@ -43,14 +43,15 @@ export default function Home() {
         {movies
           .filter((movie) => movie._id === "6725a3b3a0da6d4a20217f82")
           .map((movie) => (
-            <Image
-              key={movie.id}
-              src={movie.image}
-              layout="fill"
-              objectFit="cover"
-              alt="Featured movie"
-              onClick={() => handleImageClick(movie)}
-            />
+            <div key={movie.id} className="relative w-full h-full">
+              <Image
+                src={movie.image}
+                layout="fill"
+                objectFit="cover"  // Using the 'objectFit' prop to apply cover
+                alt="Featured movie"
+                onClick={() => handleImageClick(movie)}
+              />
+            </div>
           ))}
       </div>
 
@@ -61,7 +62,7 @@ export default function Home() {
             <div key={movie.id} id={movie.id} className="carousel-item w-full">
               <img
                 src={movie.image}
-                className="w-full h-80 cursor-pointer"
+                className="w-full h-80 object-cover cursor-pointer" // Apply Tailwind 'object-cover' here
                 onClick={() => handleImageClick(movie)}
                 alt={movie.title}
               />
@@ -80,7 +81,7 @@ export default function Home() {
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
             <div className="card glass p-6 rounded-lg shadow-lg w-11/12 md:w-1/3 text-white">
               <h2 className="text-2xl font-semibold pb-3">{currentMovie.title}</h2>
-              <img src={currentMovie.image} alt={currentMovie.title} className="w-full h-60 object-cover rounded-lg" />
+              <img src={currentMovie.image} alt={currentMovie.title} className="w-full h-60 object-cover rounded-lg" /> {/* Apply 'object-cover' here as well */}
               <p className="mt-2 flex gap-1"><span className="font-bold">Төрөл:</span> {currentMovie.type}</p>
               <p className="mt-2 flex gap-1"><span className="font-bold">Нас:</span> {currentMovie.age}</p>
               <p className="mt-2 flex gap-1"><span className="font-bold">Үргэлжлэх хугацаа:</span> {currentMovie.duration}</p>
