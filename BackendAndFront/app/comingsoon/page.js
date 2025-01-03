@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const getComings = async () => {
     try {
-        const res = await fetch("http://localhost:3000/api/comings", {
+        const res = await fetch("/api/comings", {
             cache: "no-store",
         });
         if (!res.ok) {

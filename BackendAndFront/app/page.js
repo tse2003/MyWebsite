@@ -10,7 +10,7 @@ export default function Home() {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/movies", { cache: "no-store" });
+        const res = await fetch("/api/movies", { cache: "no-store" });
         if (!res.ok) {
           throw new Error("Failed to fetch movies");
         }

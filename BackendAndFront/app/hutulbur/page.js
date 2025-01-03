@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const getTimes = async () => {
     try {
-        const res = await fetch("http://localhost:3000/api/times", {
+        const res = await fetch("/api/times", {
             cache: "no-store",
         });
         if (!res.ok) {

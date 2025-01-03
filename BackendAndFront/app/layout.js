@@ -25,11 +25,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`p-5 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]`}>
-        <Header />
-        <div>
-          <AuthProvider>{children}</AuthProvider>
+        <div className="h-screen flex flex-col">
+          <Header />
+          <div className="flex-1">
+            <AuthProvider>{children}</AuthProvider>
+          </div>
+          <Footer />
         </div>
-        <Footer />
+      
       </body>
     </html>
   );
