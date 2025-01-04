@@ -36,11 +36,11 @@ export default function Home() {
   };
 
   return (
-    <div className="m-auto w-[1000px] h-auto"> {/* Adjusted height to auto for flexible layout */}
+    <div className="m-auto w-full max-w-7xl h-auto px-4 sm:px-6 lg:px-8">
 
       <h1 className="text-white text-center font-bold text-4xl pb-5">Хамгийн их үзэлттэй кино</h1>
       
-      <div className="m-auto w-[1000px] h-[700px] bg-gray-200 relative"> {/* Adjusted height here */}
+      <div className="m-auto w-full max-w-7xl h-[400px] sm:h-[500px] lg:h-[700px] bg-gray-200 relative">
         {movies
           .filter((movie) => movie._id === "6725a3b3a0da6d4a20217f82")
           .map((movie) => (
@@ -48,7 +48,7 @@ export default function Home() {
               <Image
                 src={movie.image}
                 layout="fill"
-                objectFit="cover"  // Using 'objectFit' to make sure the image covers the area
+                objectFit="cover"
                 alt="Featured movie"
                 onClick={() => handleImageClick(movie)}
               />
@@ -64,7 +64,7 @@ export default function Home() {
             <div key={movie.id} id={movie.id} className="carousel-item w-full">
               <img
                 src={movie.image}
-                className="w-full h-96 object-cover cursor-pointer"  // Adjusted height here for carousel
+                className="w-full h-72 sm:h-80 md:h-96 object-cover cursor-pointer"
                 onClick={() => handleImageClick(movie)}
                 alt={movie.title}
               />
@@ -75,16 +75,16 @@ export default function Home() {
         <div className="flex w-full justify-center gap-2 py-2">
           {movies.map((movie, index) => (
             <a key={movie.id} href={`#${movie.id}`} className="btn btn-xs">
-              {index + 1} {/* Starts numbering from 1 */}
+              {index + 1}
             </a>
           ))}
         </div>
 
         {dialogOpen && currentMovie && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="card glass p-6 rounded-lg shadow-lg w-11/12 md:w-1/3 text-white">
+            <div className="card glass p-6 rounded-lg shadow-lg w-11/12 sm:w-4/12 md:w-1/3 text-white">
               <h2 className="text-2xl font-semibold pb-3">{currentMovie.title}</h2>
-              <img src={currentMovie.image} alt={currentMovie.title} className="w-full h-60 object-cover rounded-lg" /> {/* Adjusted height here */}
+              <img src={currentMovie.image} alt={currentMovie.title} className="w-full h-60 sm:h-72 object-cover rounded-lg" />
               <p className="mt-2 flex gap-1"><span className="font-bold">Төрөл:</span> {currentMovie.type}</p>
               <p className="mt-2 flex gap-1"><span className="font-bold">Нас:</span> {currentMovie.age}</p>
               <p className="mt-2 flex gap-1"><span className="font-bold">Үргэлжлэх хугацаа:</span> {currentMovie.duration}</p>
