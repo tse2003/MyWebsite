@@ -36,10 +36,11 @@ export default function Home() {
   };
 
   return (
-    <div className="m-auto w-[1000px] h-full">
+    <div className="m-auto w-[1000px] h-auto"> {/* Adjusted height to auto for flexible layout */}
 
       <h1 className="text-white text-center font-bold text-4xl pb-5">Хамгийн их үзэлттэй кино</h1>
-      <div className="m-auto w-[1000px] h-[550px] bg-gray-200 relative">
+      
+      <div className="m-auto w-[1000px] h-[700px] bg-gray-200 relative"> {/* Adjusted height here */}
         {movies
           .filter((movie) => movie._id === "6725a3b3a0da6d4a20217f82")
           .map((movie) => (
@@ -47,7 +48,7 @@ export default function Home() {
               <Image
                 src={movie.image}
                 layout="fill"
-                objectFit="cover"  // Using the 'objectFit' prop to apply cover
+                objectFit="cover"  // Using 'objectFit' to make sure the image covers the area
                 alt="Featured movie"
                 onClick={() => handleImageClick(movie)}
               />
@@ -56,19 +57,21 @@ export default function Home() {
       </div>
 
       <h1 className="text-white font-bold text-4xl pt-5 pb-3">Дэлгэцээр гарч буй кинонууд</h1>
+      
       <div className="relative">
         <div className="carousel w-full">
           {movies.map((movie) => (
             <div key={movie.id} id={movie.id} className="carousel-item w-full">
               <img
                 src={movie.image}
-                className="w-full h-80 object-cover cursor-pointer" // Apply Tailwind 'object-cover' here
+                className="w-full h-96 object-cover cursor-pointer"  // Adjusted height here for carousel
                 onClick={() => handleImageClick(movie)}
                 alt={movie.title}
               />
             </div>
           ))}
         </div>
+        
         <div className="flex w-full justify-center gap-2 py-2">
           {movies.map((movie, index) => (
             <a key={movie.id} href={`#${movie.id}`} className="btn btn-xs">
@@ -81,7 +84,7 @@ export default function Home() {
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
             <div className="card glass p-6 rounded-lg shadow-lg w-11/12 md:w-1/3 text-white">
               <h2 className="text-2xl font-semibold pb-3">{currentMovie.title}</h2>
-              <img src={currentMovie.image} alt={currentMovie.title} className="w-full h-60 object-cover rounded-lg" /> {/* Apply 'object-cover' here as well */}
+              <img src={currentMovie.image} alt={currentMovie.title} className="w-full h-60 object-cover rounded-lg" /> {/* Adjusted height here */}
               <p className="mt-2 flex gap-1"><span className="font-bold">Төрөл:</span> {currentMovie.type}</p>
               <p className="mt-2 flex gap-1"><span className="font-bold">Нас:</span> {currentMovie.age}</p>
               <p className="mt-2 flex gap-1"><span className="font-bold">Үргэлжлэх хугацаа:</span> {currentMovie.duration}</p>
