@@ -2,16 +2,16 @@ import Image from "next/image";
 
 export default function Page() {
     return (
-        <div className="m-auto w-[1000px] h-full">
+        <div className="m-auto w-full h-full px-4">
             <h1 className="text-white text-center font-bold text-4xl pt-5 pb-5">БОНУС КАРТ</h1>
-            <div className="flex gap-5 justify-center">
-                <div className="max-w-sm rounded overflow-hidden shadow-lg card glass p-5">
+            <div className="flex flex-wrap gap-5 justify-center">
+                <div className="max-w-sm w-full sm:w-80 md:w-96 rounded overflow-hidden shadow-lg card glass p-5">
                     <Image 
-                        className="w-full" 
+                        className="w-full h-auto object-cover" 
                         src="/bonus/loyalty.png" 
-                        width={400}  // Adjust width as needed
-                        height={300} // Adjust height as needed
-                        alt="Sunset in the mountains" 
+                        width={400}  
+                        height={300} 
+                        alt="Bonus Card Image" 
                     />
                     <div className="px-6 py-4">
                         <div className="font-bold text-xl mb-2 text-white">Өргөө бонус карт гэж юу вэ? <p>10% бонус</p></div>
@@ -21,13 +21,13 @@ export default function Page() {
                     </div>
                 </div>
 
-                <div className="max-w-sm rounded overflow-hidden shadow-lg card glass p-5">
+                <div className="max-w-sm w-full sm:w-80 md:w-96 rounded overflow-hidden shadow-lg card glass p-5">
                     <Image 
-                        className="w-full" 
+                        className="w-full h-auto object-cover" 
                         src="/bonus/goolingoo.png" 
-                        width={400}  // Adjust width as needed
-                        height={300} // Adjust height as needed
-                        alt="Sunset in the mountains" 
+                        width={400}  
+                        height={300} 
+                        alt="Bonus Card Image" 
                     />
                     <div className="px-6 py-4">
                         <div className="font-bold text-xl mb-2 text-white">Гоолингоо бонус карт гэж юу вэ? <p>Эмэгтэйчүүдэд 13%</p></div>
@@ -71,19 +71,6 @@ export default function Page() {
                 <h1 className="text-2xl font-bold pt-10">Бонус төгрөг шилжүүлэх:</h1>
                 <ul className="list-disc list-inside pl-5">
                     <li>Таны цуглуулсан бонус карт бүх хэсэгт үйлчлэх бөгөөд энэхүү цуглуулсан бонус төгрөгийг өөр картруу шилжүүлэх боломжгүй ба зөвхөн хэрэглэгч хаяж үрэгдүүлсэн тохиолдолд хуучин картыг хүчингүй болгосны дараа шинэ картанд бонус оноог нөхөн олгох боломжтой болно.</li>
-                </ul>
-                <h1 className="text-2xl font-bold pt-10">Бонус картын хүчинтэй хугацаа:</h1>
-                <ul className="list-disc list-inside pl-5">
-                    <li>Өргөө кинотеатрын гишүүнчлэлийн картын хугацаа эхлэн нээхэд 3 жилийн хугацаатай байна. Хугацаа нь дууссан хэрэглэгчид аливаа худалдан авалт хийхэд бонус төгрөг бодогдохгүй. Мөн хугацаа нь дууссан хэрэглэгчидэд бонус төгрөгөөр үйлчлэхгүй.</li>
-                </ul>
-                <h1 className="text-2xl font-bold pt-10">Бонус картын үнэ:</h1>
-                <ul className="list-disc list-inside pl-5">
-                    <li>Шинээр бонус картын гишүүн болоход хэрэглэгчээс 2500 төгрөг хураах ба хэрэглэгч энэхүү картаараа 3 жилийн хугацаанд үйлчлүүлэх боломжтой.</li>
-                </ul>
-                <h1 className="text-2xl font-bold pt-10">Бонус төгрөг цуглуулах боломжгүй нөхцлүүд:</h1>
-                <ul className="list-disc list-inside pl-5">
-                    <li>Хэрэглэгч аливаа бэлгийн карт болон бэлгийн тасалбараар үйлчлүүлж байгаа тохиолдолд бонус төгрөг бодогдохгүй.</li>
-                    <li>Кино театрын зүгээс гаргасан хөнгөлөлт урамшууллын бэлгийн карт, бэлгийн тасалбарт бонус төгрөг цуглуулах боломжгүй.</li>
                 </ul>
             </div>
         </div>
