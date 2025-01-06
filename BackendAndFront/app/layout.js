@@ -23,8 +23,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`p-5 bg-black [background-image:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]`}>
-      <body className="h-auto flex flex-col"> {/* Changed from h-screen to h-auto */}
+    <html lang="en" className={`p-0 bg-black [background-image:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]`}>
+      <body className="h-auto flex flex-col">
           <Header />
           <div className="flex-1">
             <AuthProvider>{children}</AuthProvider>
