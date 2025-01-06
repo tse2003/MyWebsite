@@ -55,128 +55,133 @@ export default function UserInfo() {
     };
 
     return (
-        <div className="flex">
-            <div className="pr-5">
-                <h1 className="text-center">Сайн байна уу?</h1>
-                <div>
-                    Email: <span className="font-bold">{session?.user?.email}</span>
-                </div>
-                <button
-                    onClick={() => signOut()}
-                    className="bg-red-500 text-white font-bold px-6 py-2 mt-3"
-                >
-                    Log Out
-                </button>
-            </div>
-
-            <div className="card glass p-6 text-white">
-                <h1 className="text-center text-2xl font-bold">ТА КИНОГОО ЗАХИАЛНА УУ</h1>
-
-                <form onSubmit={handleSubmit}>
-                    <div className="flex">
+        <div className="min-h-screen flex flex-col pb-10 sm:pb-20"> {/* Add padding-bottom here */}
+            <div className="flex flex-col sm:flex-row sm:space-x-5 flex-grow">
+                {/* User Info Section */}
+                <div className="p-5 sm:w-1/3">
+                    <h1 className="text-center">Сайн байна уу?</h1>
                     <div>
-                    
-                    <label htmlFor="Movie" className="block mt-5 mb-2 text-sm font-medium text-white">
-                        Кино:
-                    </label>
-                    <select
-                        id="Movie"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5"
-                        required
-                    >
-                        <option value="">Кино сонгох</option>
-                        <option value="Z ZONE">Z ZONE</option>
-                        <option value="Өмнөдийг зорих замд">Өмнөдийг зорих замд</option>
-                        <option value="Дада">Дада</option>
-                        <option value="Smile 2">Smile 2</option>
-                    </select>
-
-                    <label htmlFor="Day" className="block mt-5 mb-2 text-sm font-medium text-white">
-                        Өдөр:
-                    </label>
-                    <select
-                        id="Day"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5"
-                        required
-                    >
-                        <option value="">Өдөр сонгох</option>
-                        <option value="2024-11-11">2024-11-11</option>
-                        <option value="2024-11-12">2024-11-12</option>
-                        <option value="2024-11-13">2024-11-13</option>
-                        <option value="2024-11-14">2024-11-14</option>
-                    </select>
-
-                    <label htmlFor="Time" className="block mt-5 mb-2 text-sm font-medium text-white">
-                        Цаг:
-                    </label>
-                    <select
-                        id="Time"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5"
-                        required
-                    >
-                        <option value="">Цаг сонгох</option>
-                        <option value="14:40">14:40</option>
-                        <option value="15:20">15:20</option>
-                        <option value="16:00">16:00</option>
-                        <option value="18:30">18:30</option>
-                    </select>
-
-                    <label htmlFor="Phone" className="block mt-5 mb-2 text-sm font-medium text-white">
-                        Утасны дугаар:
-                    </label>
-                    <input
-                        type="tel"
-                        id="Phone"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5"
-                        placeholder="Та утасны дугаараа оруулна уу"
-                        required
-                    />
-
-                    <label htmlFor="Phone" className="block mt-5 mb-2 text-sm font-medium text-white">
-                        Хүргүүлэх хаяг:
-                    </label>
-                    <input
-                        type="text"
-                        id="Address"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5"
-                        placeholder="Та хаягаа оруулна уу"
-                        required
-                    />
+                        Email: <span className="font-bold">{session?.user?.email}</span>
                     </div>
-
-                    <div className="pl-10">
-                    <label className="block mt-5 mb-2 text-lg text-center font-medium text-white">
-                        Та суудлаа сонгоно уу!
-                    </label>
-                    <div className="grid grid-cols-10 gap-3 mt-3">
-                        {Array.from({ length: 50 }).map((_, index) => (
-                            <button
-                                key={index}
-                                type="button"
-                                onClick={() => toggleSeatSelection(index + 1)}
-                                className={`p-2 border rounded ${
-                                    selectedSeats.includes(index + 1)
-                                        ? "bg-green-500 text-white"
-                                        : "bg-gray-500 text-black"
-                                }`}
-                            >
-                                <MdEventSeat />
-                                {index + 1}
-                            </button>
-                        ))}
-                    </div>
-
                     <button
-                        type="submit"
-                        className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full w-full mt-5"
-                        disabled={loading}
+                        onClick={() => signOut()}
+                        className="bg-red-500 text-white font-bold px-6 py-2 mt-3 w-full sm:w-auto"
                     >
-                        {loading ? "Захиалж байна..." : "Захиалах"}
+                        Log Out
                     </button>
-                    </div>
-                    </div>
-                </form>
+                </div>
+
+                {/* Booking Form Section */}
+                <div className="card glass p-6 text-white sm:w-2/3">
+                    <h1 className="text-center text-2xl font-bold">ТА КИНОГОО ЗАХИАЛНА УУ</h1>
+
+                    <form onSubmit={handleSubmit}>
+                        <div>
+                            <div>
+                                <label htmlFor="Movie" className="block mt-5 mb-2 text-sm font-medium text-white">
+                                    Кино:
+                                </label>
+                                <select
+                                    id="Movie"
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full sm:w-64 p-2.5"
+                                    required
+                                >
+                                    <option value="">Кино сонгох</option>
+                                    <option value="Z ZONE">Z ZONE</option>
+                                    <option value="Өмнөдийг зорих замд">Өмнөдийг зорих замд</option>
+                                    <option value="Дада">Дада</option>
+                                    <option value="Smile 2">Smile 2</option>
+                                </select>
+
+                                <label htmlFor="Day" className="block mt-5 mb-2 text-sm font-medium text-white">
+                                    Өдөр:
+                                </label>
+                                <select
+                                    id="Day"
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full sm:w-64 p-2.5"
+                                    required
+                                >
+                                    <option value="">Өдөр сонгох</option>
+                                    <option value="2024-11-11">2024-11-11</option>
+                                    <option value="2024-11-12">2024-11-12</option>
+                                    <option value="2024-11-13">2024-11-13</option>
+                                    <option value="2024-11-14">2024-11-14</option>
+                                </select>
+
+                                <label htmlFor="Time" className="block mt-5 mb-2 text-sm font-medium text-white">
+                                    Цаг:
+                                </label>
+                                <select
+                                    id="Time"
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full sm:w-64 p-2.5"
+                                    required
+                                >
+                                    <option value="">Цаг сонгох</option>
+                                    <option value="14:40">14:40</option>
+                                    <option value="15:20">15:20</option>
+                                    <option value="16:00">16:00</option>
+                                    <option value="18:30">18:30</option>
+                                </select>
+
+                                <label htmlFor="Phone" className="block mt-5 mb-2 text-sm font-medium text-white">
+                                    Утасны дугаар:
+                                </label>
+                                <input
+                                    type="tel"
+                                    id="Phone"
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full sm:w-64 p-2.5"
+                                    placeholder="Та утасны дугаараа оруулна уу"
+                                    required
+                                />
+
+                                <label htmlFor="Address" className="block mt-5 mb-2 text-sm font-medium text-white">
+                                    Хүргүүлэх хаяг:
+                                </label>
+                                <input
+                                    type="text"
+                                    id="Address"
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full sm:w-64 p-2.5"
+                                    placeholder="Та хаягаа оруулна уу"
+                                    required
+                                />
+                            </div>
+
+                            <div className="mt-5">
+                                <label className="block mb-2 text-lg text-center font-medium text-white">
+                                    Та суудлаа сонгоно уу!
+                                </label>
+                                <div className="grid grid-cols-6 sm:grid-cols-10 gap-3">
+                                    {Array.from({ length: 50 }).map((_, index) => (
+                                        <button
+                                            key={index}
+                                            type="button"
+                                            onClick={() => toggleSeatSelection(index + 1)}
+                                            className={`p-2 border rounded ${
+                                                selectedSeats.includes(index + 1)
+                                                    ? "bg-green-500 text-white"
+                                                    : "bg-gray-500 text-black"
+                                            }`}
+                                        >
+                                            <MdEventSeat />
+                                            {index + 1}
+                                        </button>
+                                    ))}
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full w-full mt-5"
+                                    disabled={loading}
+                                >
+                                    {loading ? "Захиалж байна..." : "Захиалах"}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
+
+            {/* Footer Section */}
         </div>
     );
 }
