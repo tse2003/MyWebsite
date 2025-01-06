@@ -2,13 +2,42 @@
 
 import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MdEventSeat } from "react-icons/md";
 
 export default function UserInfo() {
     const { data: session } = useSession();
     const [selectedSeats, setSelectedSeats] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [bookedSeats, setBookedSeats] = useState([]);
+
+    useEffect(() => {
+        const fetchBookedSeats = async () => {
+            try {
+                const response = await fetch("/api/booking");
+
+                // Check if the response is OK
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch: ${response.statusText}`);
+                }
+
+                // Check if the response body is empty
+                const responseText = await response.text();
+                if (!responseText) {
+                    console.error("Empty response body");
+                    return;
+                }
+
+                // Parse the JSON response
+                const data = JSON.parse(responseText);  // or response.json() if you are confident
+                setBookedSeats(data.bookedSeats || []); // Set the booked seats state (empty array if none)
+            } catch (error) {
+                console.error("Failed to fetch booked seats:", error);
+            }
+        };
+
+        fetchBookedSeats();
+    }, []);
 
     const toggleSeatSelection = (seat) => {
         if (selectedSeats.includes(seat)) {
@@ -55,7 +84,7 @@ export default function UserInfo() {
     };
 
     return (
-        <div className="min-h-screen flex flex-col pb-10 sm:pb-20"> {/* Add padding-bottom here */}
+        <div className="min-h-screen flex flex-col pb-10 sm:pb-20">
             <div className="flex flex-col sm:flex-row sm:space-x-5 flex-grow">
                 {/* User Info Section */}
                 <div className="p-5 sm:w-1/3">
@@ -77,6 +106,7 @@ export default function UserInfo() {
 
                     <form onSubmit={handleSubmit}>
                         <div>
+                            {/* Movie, Day, Time, Phone, and Address Fields */}
                             <div>
                                 <label htmlFor="Movie" className="block mt-5 mb-2 text-sm font-medium text-white">
                                     Кино:
@@ -92,6 +122,8 @@ export default function UserInfo() {
                                     <option value="Дада">Дада</option>
                                     <option value="Smile 2">Smile 2</option>
                                 </select>
+
+                                {/* Day, Time, Phone, Address Inputs (Similar to Movie selection) */}
 
                                 <label htmlFor="Day" className="block mt-5 mb-2 text-sm font-medium text-white">
                                     Өдөр:
@@ -144,28 +176,39 @@ export default function UserInfo() {
                                     placeholder="Та хаягаа оруулна уу"
                                     required
                                 />
+
+
+
                             </div>
 
+                            {/* Seat Selection */}
                             <div className="mt-5">
                                 <label className="block mb-2 text-lg text-center font-medium text-white">
                                     Та суудлаа сонгоно уу!
                                 </label>
                                 <div className="grid grid-cols-6 sm:grid-cols-10 gap-3">
-                                    {Array.from({ length: 50 }).map((_, index) => (
-                                        <button
-                                            key={index}
-                                            type="button"
-                                            onClick={() => toggleSeatSelection(index + 1)}
-                                            className={`p-2 border rounded ${
-                                                selectedSeats.includes(index + 1)
-                                                    ? "bg-green-500 text-white"
-                                                    : "bg-gray-500 text-black"
-                                            }`}
-                                        >
-                                            <MdEventSeat />
-                                            {index + 1}
-                                        </button>
-                                    ))}
+                                    {Array.from({ length: 50 }).map((_, index) => {
+                                        const seatNumber = index + 1;
+                                        const isBooked = bookedSeats.includes(seatNumber);
+                                        return (
+                                            <button
+                                                key={seatNumber}
+                                                type="button"
+                                                onClick={() => !isBooked && toggleSeatSelection(seatNumber)}
+                                                className={`p-2 border rounded ${
+                                                    selectedSeats.includes(seatNumber)
+                                                        ? "bg-green-500 text-white"
+                                                        : isBooked
+                                                        ? "bg-red-600 text-white cursor-not-allowed"
+                                                        : "bg-gray-500 text-black"
+                                                }`}
+                                                disabled={isBooked}
+                                            >
+                                                <MdEventSeat />
+                                                {seatNumber}
+                                            </button>
+                                        );
+                                    })}
                                 </div>
 
                                 <button
@@ -180,8 +223,6 @@ export default function UserInfo() {
                     </form>
                 </div>
             </div>
-
-            {/* Footer Section */}
         </div>
     );
 }

@@ -1,5 +1,21 @@
 import connectMongoDB from "@/libs/mongodb";
 import Booking from "@/models/Booking";
+import { NextResponse } from "next/server";
+
+export async function GET() {
+    try {
+        await connectMongoDB();
+        const bookings = await Booking.find();
+
+        // Extract all booked seats from the bookings
+        const bookedSeats = bookings.flatMap((booking) => booking.seats);
+
+        return NextResponse.json({ bookedSeats });
+    } catch (error) {
+        console.error("Error fetching bookings:", error);
+        return NextResponse.json({ error: "Failed to fetch booked seats" }, { status: 500 });
+    }
+}
 
 export async function POST(req) {
     try {
@@ -22,7 +38,7 @@ export async function POST(req) {
 
         // Respond with success
         return new Response(
-            JSON.stringify({ message: "Таны захиалга амжилттай баталгаажилаа. Бид тантай удахгүй холбогдож тасалбарыг нь хүргэх болно.", booking: newBooking }),
+            JSON.stringify({ message: "Booking successful!", booking: newBooking }),
             { status: 201 }
         );
     } catch (error) {
