@@ -101,7 +101,7 @@ export default function UserInfo() {
                 </div>
 
                 {/* Booking Form Section */}
-                <div className="card glass p-6 text-white sm:w-2/3">
+                <div className="card glass p-6 text-white sm:w-2/3 ">
                     <h1 className="text-center text-2xl font-bold">ТА КИНОГОО ЗАХИАЛНА УУ</h1>
 
                     <form onSubmit={handleSubmit}>
@@ -186,7 +186,7 @@ export default function UserInfo() {
                                 <label className="block mb-2 text-lg text-center font-medium text-white">
                                     Та суудлаа сонгоно уу!
                                 </label>
-                                <div className="grid grid-cols-6 sm:grid-cols-10 gap-3">
+                                <div className="grid grid-cols-6 sm:bg-black overflow-scroll h-full sm:grid-cols-10 gap-3">
                                     {Array.from({ length: 50 }).map((_, index) => {
                                         const seatNumber = index + 1;
                                         const isBooked = bookedSeats.includes(seatNumber);
