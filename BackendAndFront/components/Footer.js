@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="footer text-neutral-content mt-[400px] p-10 mx-auto w-full sm:w-[1000px] flex flex-col sm:flex-row sm:space-x-16 sm:justify-between">
+    <footer className="footer text-neutral-content p-10 mx-auto w-full sm:w-[1000px] flex flex-col sm:flex-row sm:space-x-16 sm:justify-between">
       {/* Main Section */}
       <nav className="flex flex-col mb-10 sm:mb-0">
         <h6 className="footer-title text-lg font-semibold mb-3">ҮНДСЭН</h6>

@@ -43,6 +43,7 @@ export default function Page() {
                     </div>
                 </div>
                 
+                <div className="flex flex-wrap gap-5 justify-center">
                 {/* Card 3 */}
                 <div className="card glass w-full sm:w-96 lg:w-96">
                     <figure>
@@ -76,6 +77,7 @@ export default function Page() {
                             Өргөө-2 салбарт байрлах сүүлийн үеийн тоног төхөөрөмжөөр тоноглогдсон караоке нь танд тав тух, соёлтой үйлчилгээг санал болгож байна.
                         </p>
                     </div>
+                </div>
                 </div>
                 
                 {/* Card 5 */}
