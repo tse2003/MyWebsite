@@ -34,12 +34,9 @@ export default function Footer() {
       {/* Additional Information */}
       <nav className="flex flex-col">
         <h6 className="footer-title text-lg font-semibold mb-3">ТУСЛАХ ЦЭС</h6>
-        <span className="link link-hover mb-2">Салбар</span>
         <Link href='/bonus'>
           <span className="link link-hover mb-2">Бонус карт</span>
         </Link>
-        <span className="link link-hover mb-2">Урамшуулал</span>
-        <span className="link link-hover mb-2">Үйлчилгээний нөхцөл</span>
       </nav>
     </footer>
   );
